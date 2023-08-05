@@ -15,12 +15,18 @@ const View = () => {
     dispatch(deleteStudent(id));
   };
 
+
+
   useEffect(() => {
     dispatch(getData());
   }, []);
 
   return (
+
     <div className="container-fluid mx-auto ">
+      <div className="flex justify-between py-2 pt-3 min-w-full sm:px-6 lg:px-10">
+        <Link to="/add" className="py-3 px-5 bg-blue-400 text-white hover:bg-blue-600 transition-[all_0.5s] rounded-[5px]" >Add New Studant</Link>
+      </div>
       <div className="flex flex-col">
         <div className="overflow-x-auto sm:mx-0.5 lg:mx-0.5">
           <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
@@ -85,7 +91,7 @@ const View = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {StudentData.map((val) => {
+                  {StudentData != null &&  StudentData.map((val) => {
                     return (
                       <tr
                         key={val.id}
