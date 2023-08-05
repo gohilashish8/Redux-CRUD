@@ -5,13 +5,9 @@ import { v4 as uuidv4 } from "uuid";
 import { AddStudent } from "../../Services/Action/StudentAction/StudentAction";
 import { useNavigate } from "react-router-dom";
 
-
-
 const Add = () => {
-  const dispatch = useDispatch()
-  const navigate =  useNavigate()
-
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [value, setValue] = useState({
     username: "",
@@ -40,11 +36,19 @@ const Add = () => {
       value.email === ""
     ) {
       alert("please fill User  Information");
+    } else if (
+      value.address === "" ||
+      value.city === "" ||
+      value.country === "" ||
+      value.postalcode === ""
+    ) {
+      alert("Please Fill Address Details");
+    } else if (value.aboutme === "") {
+      alert("Please Fill Address Details");
     } else {
+      dispatch(AddStudent(newStudent));
 
-      dispatch(AddStudent(newStudent))
-
-      navigate("/view")
+      navigate("/view");
       setValue({
         username: "",
         email: "",
