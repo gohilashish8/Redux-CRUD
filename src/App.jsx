@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import View from "./Components/View/View";
 import Home from './Components/Home/Home';
 import Edit from "./Components/Edit/Edit";
+import Product from "./Components/Product/Product";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/add" element={<Add />} />
           <Route path="/view" element={<View />} />
           <Route path="/edit/:id" element={<Edit />} />
+          <Route path="/product" element={<Product />} />
         </Routes>
       </BrowserRouter>
     </>

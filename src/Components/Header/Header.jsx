@@ -22,6 +22,11 @@ const Header = () => {
               VIEW
             </li>
           </Link>
+          <Link to="/product">
+            <li className={` ${locetion.pathname==="/product" ? "border-opacity-100 text-green-500" : "" } p-4 border-b-2 uppercase border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer`}>
+              Product
+            </li>
+          </Link>
         </ul>
       </nav>
     </header>
