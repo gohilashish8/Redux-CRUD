@@ -1,21 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { parsedData } from "./data";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../../Services/Action/ProductAction/ProductAction";
 
 const Product = () => {
   const dispatch = useDispatch();
+  const cartProducts = useSelector((state) => state.productReducer.products);
   let data = parsedData.products;
 
+  const [disabledProducts, setDisabledProducts] = useState([]);
+
+  useEffect(() => {
+    setDisabledProducts(cartProducts.map((product) => product.id));
+  }, [cartProducts]);
+
   const handleClick = (id) => {
-    let addToCart = data.filter((val) => {
-      return val.id === id;
-    });
-
-    dispatch(addProduct(addToCart[0]));
-
-    console.log("Add To Cart Data >>>>", addToCart);
+    if (!disabledProducts.includes(id)) {
+      let addToCart = data.filter((val) => val.id === id);
+      dispatch(addProduct(addToCart[0]));
+      console.log("Add To Cart Data >>>>", addToCart);
+    } else {
+      console.log("Product already in the cart!");
+    }
   };
+
   return (
     <>
       <div className="container mx-auto mt-[20px]">
@@ -36,13 +44,13 @@ const Product = () => {
                     alt="product image"
                   />
                   <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">
-                    {val.discountPercentage} %{" "}
+                    {val.discountPercentage} %
                   </span>
                 </a>
                 <div className="mt-4 px-5 pb-5">
                   <a href="#">
                     <h5 className="text-xl tracking-tight text-slate-900 h-[60px]">
-                      {val.title} - {val.brand}{" "}
+                      {val.title} - {val.brand}
                     </h5>
                   </a>
                   <div className=" text-sm h-[90px]">{val.description}</div>
@@ -53,6 +61,7 @@ const Product = () => {
                       </span>
                     </p>
                     <div className="flex items-center">
+
                       <svg
                         aria-hidden="true"
                         className="h-5 w-5 text-yellow-300"
@@ -100,7 +109,11 @@ const Product = () => {
                       onClick={() => {
                         handleClick(val.id);
                       }}
-                      className="flex items-center justify-center rounded-md bg-slate-900 w-full px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                      className={`flex items-center justify-center rounded-md bg-slate-900 w-full px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300 ${
+                        disabledProducts.includes(val.id)
+                          ? "opacity-50 "
+                          : ""
+                      }`}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +123,7 @@ const Product = () => {
                         stroke="currentColor"
                         strokeWidth="2"
                       >
-                        <path
+                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
