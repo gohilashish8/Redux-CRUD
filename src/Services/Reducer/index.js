@@ -1,9 +1,10 @@
 
-  import StudentReducer from "./studentReducer/StudentReducer";
-
-  import {combineReducers} from "redux"
-  const rootReducer = combineReducers({
-    StudentReducer
+import {combineReducers} from "redux"
+import StudentReducer from "./studentReducer/StudentReducer";
+  import productReducer from './ProductReducer/productReducer';
+const rootReducer = combineReducers({
+    StudentReducer ,
+    productReducer
   });
 
   export default rootReducer

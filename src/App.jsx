@@ -7,6 +7,7 @@ import View from "./Components/View/View";
 import Home from './Components/Home/Home';
 import Edit from "./Components/Edit/Edit";
 import Product from "./Components/Product/Product";
+import AddToCart from "./Components/AddToCart/AddToCart";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/view" element={<View />} />
           <Route path="/edit/:id" element={<Edit />} />
           <Route path="/product" element={<Product />} />
+          <Route path="/addtocart" element={<AddToCart />} />
         </Routes>
       </BrowserRouter>
     </>
