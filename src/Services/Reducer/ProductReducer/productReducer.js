@@ -19,7 +19,7 @@ const initialState = {
         };
       case "DELETE_PRODUCT":
         const deleteproducts =  state.products.filter((val) => val.id  !== action.payload.id );
-        localStorage.setItem( "data" , JSON.stringify(deleteproducts) )
+        localStorage.setItem( "products" , JSON.stringify(deleteproducts) )
         console.log(deleteproducts , "this is a product reducer page console")
         return {
           ...state,
