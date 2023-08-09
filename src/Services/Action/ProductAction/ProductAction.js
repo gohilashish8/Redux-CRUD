@@ -16,9 +16,9 @@ export const deleteproduct = (product) => {
 }
 
 
-export const getData = () => {
+export const getProductData = () => {
     return {
-        type : "GET_DATA",
+        type : "GET_PRODUCT_DATA",
         payload: JSON.parse(localStorage.getItem("products"))
     }
 }

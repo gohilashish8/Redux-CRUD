@@ -33,7 +33,7 @@ const initialState = {
           ...state,
           students:deletedStudent
         }
-      case "GET_DATA":
+      case "GET_STUDENT_DATA":
 
 
         return {

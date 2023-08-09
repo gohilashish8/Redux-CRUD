@@ -29,6 +29,8 @@ const Add = () => {
       ...value,
     };
 
+    console.log(newStudent,">>>>add id white students");
+
     if (
       value.username === "" ||
       value.fname === "" ||

@@ -1,6 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getStudentData } from "../../Services/Action/StudentAction/StudentAction";
+import { getProductData } from "../../Services/Action/ProductAction/ProductAction";
 
 const Home = () => {
+
+  const dispatch = useDispatch()
+
+
+ if( localStorage.getItem("data") === null ) {
+  localStorage.setItem( "data" , JSON.stringify([]) )
+ }
+ if( localStorage.getItem("products") === null ) {
+  localStorage.setItem( "products" , JSON.stringify([]) )
+}
+
+useEffect(() => {
+   dispatch(getStudentData())
+
+   
+   dispatch(getProductData())
+ }, [])
+
+
+
+
   return (
     <>
       <section className="relative  bg-blueGray-50">

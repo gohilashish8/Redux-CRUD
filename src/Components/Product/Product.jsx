@@ -109,7 +109,7 @@ const Product = () => {
                       onClick={() => {
                         handleClick(val.id);
                       }}
-                      className={`flex items-center justify-center rounded-md bg-slate-900 w-full px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300 ${
+                      className={`flex items-center justify-center cursor-pointer rounded-md bg-slate-900 w-full px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300 ${
                         disabledProducts.includes(val.id)
                           ? "opacity-50 "
                           : ""

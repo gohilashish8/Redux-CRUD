@@ -10,6 +10,7 @@ const initialState = {
           ...state.products,
             action.payload
        ]
+       console.log(addLocalStoreg , "Add product on localStoreg");
         localStorage.setItem( "products" , JSON.stringify(addLocalStoreg) )
 
         return {
@@ -26,7 +27,7 @@ const initialState = {
           products: deleteproducts,
         };
 
-        case "GET_DATA":
+        case "GET_PRODUCT_DATA":
           console.log(action.payload , "dffdffddfddd" );
         return {
           ...state,

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { deleteproduct, getData } from "../../Services/Action/ProductAction/ProductAction";
+import { deleteproduct, getProductData } from "../../Services/Action/ProductAction/ProductAction";
 
 const AddToCart = () => {
   const [totle , setTotle ] = useState("");
@@ -27,11 +27,13 @@ const AddToCart = () => {
   };
 
   const  allsum = product.map((val) =>   val.price )
+  console.log(allsum , "allsum");
   const sum = allsum.reduce((acc, current) => acc + current, 0);
 
 
   useEffect(() => {
-    dispatch(getData());
+
+    dispatch(getProductData());
   }, []);
 
   return (
@@ -52,11 +54,12 @@ const AddToCart = () => {
             </h3>
           </div>
 
-          {newdata.map((val) => {
+          {newdata.map((val , i) => {
             return (
               <>
                 <div
-                  key={val.id}
+                  key={i}
+
                   className="flex justify-between  items-center hover:bg-gray-100 -mx-8 px-6 py-5"
                 >
                   <div className="flex  w-2/5">

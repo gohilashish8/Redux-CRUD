@@ -18,9 +18,9 @@ export const deleteStudent = (studentid) => {
         payload : studentid
     }
 }
-export const getData = () => {
+export const getStudentData = () => {
     return {
-        type : "GET_DATA",
+        type : "GET_STUDENT_DATA",
         payload: JSON.parse(localStorage.getItem("data"))
     }
 }

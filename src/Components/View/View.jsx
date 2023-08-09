@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   deleteStudent,
-  getData,
+  getStudentData,
 } from "../../Services/Action/StudentAction/StudentAction";
 
 const View = () => {
@@ -18,7 +18,7 @@ const View = () => {
 
 
   useEffect(() => {
-    dispatch(getData());
+    dispatch(getStudentData());
   }, []);
 
   return (
