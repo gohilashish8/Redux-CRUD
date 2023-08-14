@@ -3,7 +3,7 @@ const initialState = {
   };
 
   const studentReducer = (state = initialState, action) => {
-    console.log();
+
     switch (action.type) {
       case "ADD_STUDENT":
 

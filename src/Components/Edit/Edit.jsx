@@ -157,7 +157,7 @@ const Edit = () => {
                       City
                     </label>
                     <input
-                      type="email"
+                      type="text"
                       className="border-2 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow  focus:outline-none focus:ring-2 w-full ease-linear transition-all duration-150"
                       onChange={handleChange}
                       value={value.city}
